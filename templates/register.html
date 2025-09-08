@@ -29,11 +29,21 @@
         <main class="container mx-auto py-12 px-4">
             <div class="bg-white bg-opacity-90 max-w-md mx-auto rounded-3xl p-8 shadow-2xl">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center gradient-text">Registratsiya</h2>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Username" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    <input type="tel" placeholder="Telefon raqami (+998)" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    <input type="password" placeholder="Parol" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    <input type="password" placeholder="Parolni tasdiqlang" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <form class="space-y-4" method="post">
+                    {% if messages %}
+					<div class="alert alert-danger">
+						<ul>
+							{% for message in messages %}
+							<li>{{ message }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endif %}
+                    {% csrf_token %}
+                    <input type="text" id="username" name="username" placeholder="Username" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <input type="tel" id="phone_number" name="phone_number" placeholder="Telefon raqami (+998)" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <input type="password" id="password1" name="password1" placeholder="Parol" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <input type="password" id="password2" name="password2" placeholder="Parolni tasdiqlang" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white py-3 rounded-lg hover:from-blue-700 hover:to-green-600 transition-all duration-300">Ro‘yxatdan o‘tish</button>
                 </form>
             </div>

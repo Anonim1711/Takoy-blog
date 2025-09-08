@@ -1,0 +1,22 @@
+<body class="bg-gradient-to-br from-blue-50 via-green-50 to-pink-50 min-h-screen">
+    <header class="bg-gradient-to-r from-blue-600 to-green-500 text-white py-6 shadow-2xl sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-4xl font-extrabold tracking-wider gradient-text">Takoy Blog</h1>
+            <nav class="space-x-6">
+                <a href="{% url 'homepage' %}" class="hover:text-pink-200 transition-colors duration-300 font-semibold text-lg">Asosiy</a>
+                <a href="#" onclick="window.location.href='{% url 'register' %}'" class="hover:text-pink-200 transition-colors duration-300 font-semibold text-lg">Registratsiya</a>
+                <a href="#" onclick="window.location.href='{% url 'login' %}'" class="hover:text-pink-200 transition-colors duration-300 font-semibold text-lg">Login</a>
+                <a href="{% url 'add_blog' %}" class="hover:text-pink-200 transition-colors duration-300 font-semibold text-lg">Post Qo‘shish</a>
+                <a href="{% url 'filter' 0 %}" class="hover:text-pink-200 transition-colors duration-300 font-semibold text-lg">Muallif Filteri</a>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="bg-gradient-to-r from-blue-600 to-green-500 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">© 2025 Takoy Blog. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
