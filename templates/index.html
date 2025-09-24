@@ -33,22 +33,11 @@
             <div class="border-t border-gray-200 pt-6">
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">Kommentariyalar</h3>
                 <div class="comments-list">
-                    {% for comment in post.comments.all|slice:":4" %}
+                    {% for comment in post.comments.all %}
                     {% if comment %}
-                    <div class="bg-gray-50 p-4 rounded-xl mb-4">
-                        <p class="text-gray-700"><strong>{{ comment.author }}</strong>: {{ comment.text }} ({{ comment.date|date:"d.m.Y" }})</p>
-                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mb-4"><p class="text-gray-700"><strong>{{ comment.author }}</strong>: {{ comment.text }} ({{ comment.date|date:"d.m.Y" }})</p></div>
                     {% else %}
-                    <div class="bg-gray-50 p-4 rounded-xl mb-4">
-                        <p class="text-gray-700"><strong>Kommentariya mavjud emas</strong></p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                    {% for comment in post.comments.all|slice:"4:" %}
-                    {% if comment %}
-                    <div class="bg-gray-50 p-4 rounded-xl mb-4 comment-hidden">
-                        <p class="text-gray-700"><strong>{{ comment.author }}</strong>: {{ comment.text }} ({{ comment.date|date:"d.m.Y" }})</p>
-                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mb-4"><p class="text-gray-700"><strong>Kommentariya mavjud emas</strong></p></div>
                     {% endif %}
                     {% endfor %}
                 </div>
