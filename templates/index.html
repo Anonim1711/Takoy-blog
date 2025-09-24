@@ -41,7 +41,6 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-                <button onclick="showMoreComments(this)" class="text-blue-600 hover:text-blue-800 font-semibold mt-4">Ko‘proq ko‘rsatish</button>
                 <form class="space-y-4 mt-6" method="post" action="{% url 'comment_view' %}">
                     {% csrf_token %}
                     <textarea rows="3" name="text" placeholder="Kommentariya yozing..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>

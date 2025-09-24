@@ -50,13 +50,7 @@
                         <div class="bg-gray-50 p-4 rounded-xl mb-4"><p class="text-gray-700"><strong>Kommentariya mavjud emas</strong></p></div>
                         {% endif %}
                         {% endfor %}
-                        {% for comment in post.comments.all|slice:"4:" %}
-                        {% if comment %}
-                        <div class="bg-gray-50 p-4 rounded-xl mb-4 comment-hidden"><p class="text-gray-700"><strong>{{ comment.author }}</strong>: {{ comment.text }} ({{ comment.date|date:"d.m.Y" }})</p></div>
-                        {% endif %}
-                        {% endfor %}
                     </div>
-                    <button onclick="showMoreComments(this)" class="text-blue-600 hover:text-blue-800 font-semibold mt-4">Ko‘proq ko‘rsatish</button>
                     <form class="space-y-4 mt-6" method="post" action="{% url 'comment_view' %}">
                         {% csrf_token %}
                         <textarea rows="3" name="text" placeholder="Kommentariya yozing..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
